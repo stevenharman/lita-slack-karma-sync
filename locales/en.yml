@@ -1,0 +1,4 @@
+en:
+  lita:
+    handlers:
+      slack_karma_sync:
