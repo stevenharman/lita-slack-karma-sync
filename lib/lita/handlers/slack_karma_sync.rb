@@ -13,11 +13,13 @@ module Lita
       end
 
       def update_karma_terms(payload)
-        user_id = payload.fetch(:user_id)
+        user_id = payload.fetch(:slack_user).id
 
         new_term = find_term(user_id)
         existing_term = find_existing_term_for(user_id)
-        return if existing_term.eql?(new_term) # use #eql? b/c Term#== isn't properly aliased
+        # use #eql? b/c Term#== isn't properly aliased. See:
+        # https://github.com/jimmycuadra/lita-karma/pull/17
+        return if existing_term.eql?(new_term)
 
         copy_links(from: existing_term, to: new_term)
         copy_karma(from: existing_term, to: new_term)
@@ -27,7 +29,6 @@ module Lita
       private
 
       def find_existing_term_for(user_id)
-        #terms = karma_redis.zscan_each(TERMS_KEY, match: "@#{user_id} (*)").to_a
         terms = karma_redis.zscan_each(TERMS_KEY, match: normalized_user_term(user_id)).to_a
         terms = terms.map { |term, _score|
           find_term(term, normalize: false)
