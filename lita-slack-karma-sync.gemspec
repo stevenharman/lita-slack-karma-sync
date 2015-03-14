@@ -1,11 +1,11 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-slack-karma-sync"
-  spec.version       = "0.0.1"
+  spec.version       = "0.1.0"
   spec.authors       = ["Steven Harman"]
   spec.email         = ["steven@harmanly.com"]
-  spec.description   = "TODO: Add a description"
-  spec.summary       = "TODO: Add a summary"
-  spec.homepage      = "TODO: Add a homepage"
+  spec.description   = "Sync Slack user names with your lita-karma"
+  spec.summary       = "Are you a Slack user? And does your team also use `lita-karma`? This plugin can be used to keep your karma terms synced up with your Slack name."
+  spec.homepage      = "https://github.com/stevenharman/lita-slack-karma-sync"
   spec.license       = "MIT"
   spec.metadata      = { "lita_plugin_type" => "handler" }
 
