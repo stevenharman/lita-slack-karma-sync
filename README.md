@@ -63,7 +63,7 @@ In your `lita_config.rb`:
 
     ```ruby
     normalized_karma_user_term = ->(user_id, user_name) {
-      "@#{user_id} (#{user_name})" #+> @UUID (Liz Lemon)
+      "@#{user_id} (#{user_name})" #=> @UUID (Liz Lemon)
     }
     ```
 
