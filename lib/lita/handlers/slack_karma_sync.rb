@@ -1,3 +1,5 @@
+require 'lita-karma'
+
 module Lita
   module Handlers
     class SlackKarmaSync < Handler
