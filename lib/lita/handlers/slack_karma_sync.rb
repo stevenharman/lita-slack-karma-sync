@@ -16,11 +16,13 @@ module Lita
 
       def update_karma_terms(payload)
         user_id = payload.fetch(:slack_user).id
+        log.info("Slack user created: #{user_id}")
 
         new_term = find_term(user_id)
         existing_term = find_existing_term_for(user_id)
         return if existing_term == new_term
 
+        log.info("Updating Karma term for User: #{user_id}. #{existing_term.to_s} => #{new_term.to_s}")
         copy_links(from: existing_term, to: new_term)
         copy_karma(from: existing_term, to: new_term)
         existing_term.delete
