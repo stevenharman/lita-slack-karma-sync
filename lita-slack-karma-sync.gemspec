@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-slack-karma-sync"
-  spec.version       = "0.2.0"
+  spec.version       = "0.2.1"
   spec.authors       = ["Steven Harman"]
   spec.email         = ["steven@harmanly.com"]
   spec.description   = "Sync Slack user names with your lita-karma"
