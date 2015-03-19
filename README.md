@@ -75,7 +75,7 @@ In your `lita_config.rb`:
     ```ruby
     config.handlers.karma.term_normalizer = lambda do |full_term|
       term = full_term.to_s.strip.sub(/[<:]([^>:]+)[>:]/, '\1')
-      user = Lita::User.fuzzy_find(term)
+      user = Lita::User.fuzzy_find(term.sub(/\A@/, ''))
 
       if user
         normalized_karma_user_term.call(user.id, user.name)
