@@ -61,7 +61,13 @@ module Lita
         @karma_redis ||= Redis::Namespace.new('handlers:karma', redis: Lita.redis)
       end
 
+      # A Benign Term for when there are no matches
       class NoMatchingTerm
+
+        def delete
+          0 # number of keys deleted
+        end
+
         def eql?(other)
           self.class.equal?(other.class)
         end
@@ -70,6 +76,15 @@ module Lita
         def hash
           self.class.hash
         end
+
+        def links
+          []
+        end
+
+        def own_score
+          0
+        end
+
       end
     end
 
