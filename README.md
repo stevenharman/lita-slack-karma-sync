@@ -3,6 +3,8 @@
 Are you a Slack user? And does your team also use `lita-karma`? This plugin can
 be used to keep your karma terms synced up with your Slack name.
 
+![lizlemon++](doc/liz-lemon-self-high-five.gif)
+
 ### What's that now?
 
 When using Slack and `lita-karma` you can give another user, or any term in the world, some karma like so:
