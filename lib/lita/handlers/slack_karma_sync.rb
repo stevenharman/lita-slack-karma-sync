@@ -19,9 +19,7 @@ module Lita
 
         new_term = find_term(user_id)
         existing_term = find_existing_term_for(user_id)
-        # use #eql? b/c Term#== isn't properly aliased. See:
-        # https://github.com/jimmycuadra/lita-karma/pull/17
-        return if existing_term.eql?(new_term)
+        return if existing_term == new_term
 
         copy_links(from: existing_term, to: new_term)
         copy_karma(from: existing_term, to: new_term)
