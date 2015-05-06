@@ -36,7 +36,7 @@ module Lita
           find_term(term, normalize: false)
         }
 
-        fail "Found unexpected terms: #{}" if terms.size > 1
+        fail "Found unexpected terms: #{terms}" if terms.size > 1
 
         terms.first || NoMatchingTerm.new
       end
